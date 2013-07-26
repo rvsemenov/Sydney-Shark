@@ -155,6 +155,7 @@
 		18CB81B917A29C160085DBE1 /* MyFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B317A29C160085DBE1 /* MyFont.fnt */; };
 		18CB81BB17A29C160085DBE1 /* MyFont.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B517A29C160085DBE1 /* MyFont.png */; };
 		18CB81BE17A2A2590085DBE1 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81BD17A2A2590085DBE1 /* Bird.m */; };
+		18CB81C117A2A5C00085DBE1 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81C017A2A5C00085DBE1 /* GameOver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -456,6 +457,8 @@
 		18CB81B517A29C160085DBE1 /* MyFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyFont.png; sourceTree = "<group>"; };
 		18CB81BC17A2A2590085DBE1 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bird.h; path = Scenes/GameObjects/Bird.h; sourceTree = "<group>"; };
 		18CB81BD17A2A2590085DBE1 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bird.m; path = Scenes/GameObjects/Bird.m; sourceTree = "<group>"; };
+		18CB81BF17A2A5C00085DBE1 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		18CB81C017A2A5C00085DBE1 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -931,6 +934,8 @@
 				18CB818C17A27DE70085DBE1 /* GameScene.m */,
 				18CB81AC17A29A270085DBE1 /* HUDLayer.h */,
 				18CB81AD17A29A270085DBE1 /* HUDLayer.m */,
+				18CB81BF17A2A5C00085DBE1 /* GameOver.h */,
+				18CB81C017A2A5C00085DBE1 /* GameOver.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1201,6 +1206,7 @@
 				18CB81AB17A28C2E0085DBE1 /* Fish.m in Sources */,
 				18CB81AE17A29A270085DBE1 /* HUDLayer.m in Sources */,
 				18CB81BE17A2A2590085DBE1 /* Bird.m in Sources */,
+				18CB81C117A2A5C00085DBE1 /* GameOver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

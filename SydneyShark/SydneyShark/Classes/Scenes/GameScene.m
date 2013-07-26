@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "Fish.h"
 #import "Bird.h"
+#import "GameOver.h"
 
 #define speed 60
 #define gameTime 60
@@ -132,7 +133,13 @@
     [m_bonusesToDelete removeAllObjects];
     
     m_gameTime += delta;
-    [m_hudLayer updateTime:gameTime - m_gameTime];
+    CGFloat timeToEnd = gameTime - m_gameTime;
+    if (timeToEnd > 0)
+    {
+        [m_hudLayer updateTime:timeToEnd];
+    }else
+        [self gameOver];
+    
 }
 #pragma mark -
 #pragma mark add Objects
@@ -185,6 +192,11 @@
     [m_hudLayer updateTime:gameTime];
     [m_hudLayer updateScore:m_score];
     [self addChild:m_hudLayer];
+}
+
+- (void) gameOver
+{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOver sceneWithScore:m_score]]];
 }
 #pragma mark -
 #pragma mark Touches
