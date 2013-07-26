@@ -11,6 +11,7 @@
 #import "Shark.h"
 
 @interface GameScene : CCLayer {
+    CCArray *m_fishes;
     CCSpriteBatchNode *m_objectBatchNode;
     Shark *m_shark;
     CGFloat m_heightOfSee;

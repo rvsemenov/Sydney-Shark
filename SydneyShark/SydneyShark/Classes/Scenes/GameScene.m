@@ -7,7 +7,7 @@
 //
 
 #import "GameScene.h"
-
+#import "Fish.h"
 
 @implementation GameScene
 
@@ -33,8 +33,17 @@
         [self addChild:m_objectBatchNode];
         
         [self addShark];
+        [self addFishes];
     }
     return self;
+}
+
+- (void) dealloc
+{
+    [m_fishes removeAllObjects];
+    [m_fishes release];
+    
+    [super dealloc];
 }
 
 - (void) onEnter
@@ -78,6 +87,17 @@
 {
     m_shark = [Shark shark];
     [m_objectBatchNode addChild:m_shark];
+}
+
+- (void) addFishes
+{
+    m_fishes = [[CCArray alloc] initWithCapacity:12];
+    for (int i = 0; i < FISH_TYPE_MAX * 2; i++)
+    {
+        Fish *fish = [Fish fishWithType:i];
+        [m_fishes addObject:fish];
+        [m_objectBatchNode addChild:fish];
+    }
 }
 
 #pragma mark -

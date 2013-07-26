@@ -148,6 +148,7 @@
 		18CB81A017A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819C17A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist */; };
 		18CB81A117A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819D17A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz */; };
 		18CB81A517A27FD20085DBE1 /* Shark.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81A417A27FD20085DBE1 /* Shark.m */; };
+		18CB81AB17A28C2E0085DBE1 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81AA17A28C2E0085DBE1 /* Fish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -439,6 +440,8 @@
 		18CB819D17A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; name = GameObjectsSpriteSheet.pvr.gz; path = GameObjects/GameObjectsSpriteSheet.pvr.gz; sourceTree = "<group>"; };
 		18CB81A317A27FD20085DBE1 /* Shark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shark.h; path = Scenes/GameObjects/Shark.h; sourceTree = "<group>"; };
 		18CB81A417A27FD20085DBE1 /* Shark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shark.m; path = Scenes/GameObjects/Shark.m; sourceTree = "<group>"; };
+		18CB81A917A28C2E0085DBE1 /* Fish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fish.h; path = Scenes/GameObjects/Fish.h; sourceTree = "<group>"; };
+		18CB81AA17A28C2E0085DBE1 /* Fish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fish.m; path = Scenes/GameObjects/Fish.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -959,6 +962,8 @@
 		18CB81A217A27FAC0085DBE1 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				18CB81A917A28C2E0085DBE1 /* Fish.h */,
+				18CB81AA17A28C2E0085DBE1 /* Fish.m */,
 				18CB81A317A27FD20085DBE1 /* Shark.h */,
 				18CB81A417A27FD20085DBE1 /* Shark.m */,
 			);
@@ -1158,6 +1163,7 @@
 				18CB818917A27D780085DBE1 /* IntroLayer.m in Sources */,
 				18CB818D17A27DE70085DBE1 /* GameScene.m in Sources */,
 				18CB81A517A27FD20085DBE1 /* Shark.m in Sources */,
+				18CB81AB17A28C2E0085DBE1 /* Fish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
