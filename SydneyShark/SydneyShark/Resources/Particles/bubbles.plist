@@ -71,13 +71,13 @@
 	<key>sourcePositionVariancey</key>
 	<real>7</real>
 	<key>sourcePositionx</key>
-	<real>236.94256591796875</real>
+	<real>236.94000244140625</real>
 	<key>sourcePositiony</key>
-	<real>269.497802734375</real>
+	<real>269.5</real>
 	<key>speed</key>
-	<real>60</real>
+	<real>0.0</real>
 	<key>speedVariance</key>
-	<real>30</real>
+	<real>0.0</real>
 	<key>startColorAlpha</key>
 	<real>1</real>
 	<key>startColorBlue</key>

@@ -70,7 +70,6 @@
 #pragma mark onther
 - (CCNode*) getRandomObject
 {
-    //TODO: fish may end
     int rand = arc4random() % m_gameObjects.count;
     CCNode *node = [m_gameObjects objectAtIndex:rand];
     if (node.visible)
