@@ -154,6 +154,7 @@
 		18CB81B817A29C160085DBE1 /* MyFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B217A29C160085DBE1 /* MyFont-hd.png */; };
 		18CB81B917A29C160085DBE1 /* MyFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B317A29C160085DBE1 /* MyFont.fnt */; };
 		18CB81BB17A29C160085DBE1 /* MyFont.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B517A29C160085DBE1 /* MyFont.png */; };
+		18CB81BE17A2A2590085DBE1 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81BD17A2A2590085DBE1 /* Bird.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -453,6 +454,8 @@
 		18CB81B217A29C160085DBE1 /* MyFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFont-hd.png"; sourceTree = "<group>"; };
 		18CB81B317A29C160085DBE1 /* MyFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MyFont.fnt; sourceTree = "<group>"; };
 		18CB81B517A29C160085DBE1 /* MyFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyFont.png; sourceTree = "<group>"; };
+		18CB81BC17A2A2590085DBE1 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bird.h; path = Scenes/GameObjects/Bird.h; sourceTree = "<group>"; };
+		18CB81BD17A2A2590085DBE1 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bird.m; path = Scenes/GameObjects/Bird.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -980,6 +983,8 @@
 				18CB81AA17A28C2E0085DBE1 /* Fish.m */,
 				18CB81A317A27FD20085DBE1 /* Shark.h */,
 				18CB81A417A27FD20085DBE1 /* Shark.m */,
+				18CB81BC17A2A2590085DBE1 /* Bird.h */,
+				18CB81BD17A2A2590085DBE1 /* Bird.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1195,6 +1200,7 @@
 				18CB81A517A27FD20085DBE1 /* Shark.m in Sources */,
 				18CB81AB17A28C2E0085DBE1 /* Fish.m in Sources */,
 				18CB81AE17A29A270085DBE1 /* HUDLayer.m in Sources */,
+				18CB81BE17A2A2590085DBE1 /* Bird.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

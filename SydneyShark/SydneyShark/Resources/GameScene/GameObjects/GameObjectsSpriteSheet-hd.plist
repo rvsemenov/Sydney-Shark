@@ -4,6 +4,19 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>bird.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{164,251},{85,95}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{85,95}}</string>
+                <key>sourceSize</key>
+                <string>{85,95}</string>
+            </dict>
             <key>fish_00.png</key>
             <dict>
                 <key>frame</key>
@@ -59,11 +72,11 @@
             <key>fish_04.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{164,251},{78,53}}</string>
+                <string>{{109,288},{78,53}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{78,53}}</string>
                 <key>sourceSize</key>
@@ -105,7 +118,7 @@
             <key>size</key>
             <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d43bc2856432c3698f90eea9e9b7b798$</string>
+            <string>$TexturePacker:SmartUpdate:337ac2e590671e5e8a9975b6b004fb13$</string>
             <key>textureFileName</key>
             <string>GameObjectsSpriteSheet-hd.pvr.gz</string>
         </dict>

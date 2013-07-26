@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "Fish.h"
+#import "Bird.h"
 
 #define speed 60
 #define gameTime 60
@@ -40,7 +41,7 @@
         m_bonuses = [[CCArray alloc] init];
         m_bonusesToDelete = [[CCArray alloc] init];
         [self addShark];
-        [self addFishes];
+        [self addGameObjects];
         [self addHUDLayer];
     }
     return self;
@@ -48,8 +49,8 @@
 
 - (void) dealloc
 {
-    [m_fishes removeAllObjects];
-    [m_fishes release];
+    [m_gameObjects removeAllObjects];
+    [m_gameObjects release];
     
     [m_bonuses removeAllObjects];
     [m_bonuses release];
@@ -66,15 +67,15 @@
 }
 #pragma mark -
 #pragma mark onther
-- (Fish*) getRandomFish
+- (CCNode*) getRandomObject
 {
     //TODO: fish may end
-    int rand = arc4random() % m_fishes.count;
-    Fish *fish = [m_fishes objectAtIndex:rand];
-    if (fish.visible)
-        fish = [self getRandomFish];
+    int rand = arc4random() % m_gameObjects.count;
+    CCNode *node = [m_gameObjects objectAtIndex:rand];
+    if (node.visible)
+        node = [self getRandomObject];
     
-    return fish;
+    return node;
 }
 
 #pragma mark -
@@ -84,13 +85,20 @@
     if ((arc4random() % 100) < 20)
     {
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
-        Fish *fish = [self getRandomFish];
-        CGFloat height = fish.boundingBox.size.height;
-        CGFloat posY = height/2 + arc4random() % (int)(m_heightOfSee - height);
+        CCNode *node = [self getRandomObject];
+        CGFloat height = node.boundingBox.size.height;
+        CGFloat posY;
+        if ([node isKindOfClass:[Fish class]])
+        {
+            posY = height/2 + arc4random() % (int)(m_heightOfSee - height);
+        }else if ([node isKindOfClass:[Bird class]]){
+            CGFloat heightOfSky = screenSize.height - m_heightOfSee;
+            posY = m_heightOfSee + height/2 + arc4random() % (int)(heightOfSky - height);
+        }
         
-        fish.position = ccp(screenSize.width * 0.9, posY);
-        fish.visible = YES;
-        [m_bonuses addObject:fish];
+        node.position = ccp(screenSize.width * 0.9, posY);
+        node.visible = YES;
+        [m_bonuses addObject:node];
     }
 }
 
@@ -153,14 +161,21 @@
     [m_objectBatchNode addChild:m_shark z:2];
 }
 
-- (void) addFishes
+- (void) addGameObjects
 {
-    m_fishes = [[CCArray alloc] initWithCapacity:12];
+    m_gameObjects = [[CCArray alloc] initWithCapacity:12];
     for (int i = 0; i < FISH_TYPE_MAX * 3; i++)
     {
         Fish *fish = [Fish fishWithType:i];
-        [m_fishes addObject:fish];
+        [m_gameObjects addObject:fish];
         [m_objectBatchNode addChild:fish];
+    }
+    
+    for (int i = 0; i < 3; i++)
+    {
+        Bird *bird = [Bird bird];
+        [m_gameObjects addObject:bird];
+        [m_objectBatchNode addChild:bird];
     }
 }
 

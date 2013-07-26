@@ -14,7 +14,7 @@
 @interface GameScene : CCLayer {
     NSInteger m_score;
     CGFloat m_gameTime;
-    CCArray *m_fishes;
+    CCArray *m_gameObjects;
     CCArray *m_bonuses;
     CCArray *m_bonusesToDelete;
     CCSpriteBatchNode *m_objectBatchNode;
