@@ -149,6 +149,11 @@
 		18CB81A117A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819D17A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz */; };
 		18CB81A517A27FD20085DBE1 /* Shark.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81A417A27FD20085DBE1 /* Shark.m */; };
 		18CB81AB17A28C2E0085DBE1 /* Fish.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81AA17A28C2E0085DBE1 /* Fish.m */; };
+		18CB81AE17A29A270085DBE1 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81AD17A29A270085DBE1 /* HUDLayer.m */; };
+		18CB81B617A29C160085DBE1 /* MyFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B017A29C160085DBE1 /* MyFont-hd.fnt */; };
+		18CB81B817A29C160085DBE1 /* MyFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B217A29C160085DBE1 /* MyFont-hd.png */; };
+		18CB81B917A29C160085DBE1 /* MyFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B317A29C160085DBE1 /* MyFont.fnt */; };
+		18CB81BB17A29C160085DBE1 /* MyFont.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB81B517A29C160085DBE1 /* MyFont.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -442,6 +447,12 @@
 		18CB81A417A27FD20085DBE1 /* Shark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shark.m; path = Scenes/GameObjects/Shark.m; sourceTree = "<group>"; };
 		18CB81A917A28C2E0085DBE1 /* Fish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fish.h; path = Scenes/GameObjects/Fish.h; sourceTree = "<group>"; };
 		18CB81AA17A28C2E0085DBE1 /* Fish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fish.m; path = Scenes/GameObjects/Fish.m; sourceTree = "<group>"; };
+		18CB81AC17A29A270085DBE1 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		18CB81AD17A29A270085DBE1 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		18CB81B017A29C160085DBE1 /* MyFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MyFont-hd.fnt"; sourceTree = "<group>"; };
+		18CB81B217A29C160085DBE1 /* MyFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFont-hd.png"; sourceTree = "<group>"; };
+		18CB81B317A29C160085DBE1 /* MyFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MyFont.fnt; sourceTree = "<group>"; };
+		18CB81B517A29C160085DBE1 /* MyFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyFont.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -915,6 +926,8 @@
 			children = (
 				18CB818B17A27DE60085DBE1 /* GameScene.h */,
 				18CB818C17A27DE70085DBE1 /* GameScene.m */,
+				18CB81AC17A29A270085DBE1 /* HUDLayer.h */,
+				18CB81AD17A29A270085DBE1 /* HUDLayer.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -922,6 +935,7 @@
 		18CB818E17A27E8F0085DBE1 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
+				18CB81AF17A29C160085DBE1 /* Fonts */,
 				18CB819917A27F8E0085DBE1 /* GameObjects */,
 				18CB818F17A27E8F0085DBE1 /* hd */,
 				18CB819217A27E8F0085DBE1 /* sd */,
@@ -969,6 +983,18 @@
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
+		};
+		18CB81AF17A29C160085DBE1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				18CB81B017A29C160085DBE1 /* MyFont-hd.fnt */,
+				18CB81B217A29C160085DBE1 /* MyFont-hd.png */,
+				18CB81B317A29C160085DBE1 /* MyFont.fnt */,
+				18CB81B517A29C160085DBE1 /* MyFont.png */,
+			);
+			name = Fonts;
+			path = SydneyShark/Resources/Fonts;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -1041,6 +1067,10 @@
 				18CB819F17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.pvr.gz in Resources */,
 				18CB81A017A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist in Resources */,
 				18CB81A117A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz in Resources */,
+				18CB81B617A29C160085DBE1 /* MyFont-hd.fnt in Resources */,
+				18CB81B817A29C160085DBE1 /* MyFont-hd.png in Resources */,
+				18CB81B917A29C160085DBE1 /* MyFont.fnt in Resources */,
+				18CB81BB17A29C160085DBE1 /* MyFont.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,6 +1194,7 @@
 				18CB818D17A27DE70085DBE1 /* GameScene.m in Sources */,
 				18CB81A517A27FD20085DBE1 /* Shark.m in Sources */,
 				18CB81AB17A28C2E0085DBE1 /* Fish.m in Sources */,
+				18CB81AE17A29A270085DBE1 /* HUDLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

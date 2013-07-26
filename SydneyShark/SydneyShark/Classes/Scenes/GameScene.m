@@ -10,6 +10,7 @@
 #import "Fish.h"
 
 #define speed 60
+#define gameTime 60
 
 @implementation GameScene
 
@@ -28,6 +29,8 @@
     if (self = [super init])
     {
         self.touchEnabled = YES;
+        m_gameTime = 0.0f;
+        m_score = 0;
         [self addBackground];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameObjectsSpriteSheet.plist"];
@@ -38,6 +41,7 @@
         m_bonusesToDelete = [[CCArray alloc] init];
         [self addShark];
         [self addFishes];
+        [self addHUDLayer];
     }
     return self;
 }
@@ -107,7 +111,8 @@
         if (CGRectContainsPoint(m_shark.boundingBox, bonus.position))
         {
             [m_bonusesToDelete addObject:bonus];
-            NSLog(@"score");
+            m_score++;
+            [m_hudLayer updateScore:m_score];
         }
     }
 
@@ -117,6 +122,9 @@
         [m_bonuses removeObject:bonus];
     }
     [m_bonusesToDelete removeAllObjects];
+    
+    m_gameTime += delta;
+    [m_hudLayer updateTime:gameTime - m_gameTime];
 }
 #pragma mark -
 #pragma mark add Objects
@@ -156,6 +164,13 @@
     }
 }
 
+- (void) addHUDLayer
+{
+    m_hudLayer = [HUDLayer node];
+    [m_hudLayer updateTime:gameTime];
+    [m_hudLayer updateScore:m_score];
+    [self addChild:m_hudLayer];
+}
 #pragma mark -
 #pragma mark Touches
 - (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
