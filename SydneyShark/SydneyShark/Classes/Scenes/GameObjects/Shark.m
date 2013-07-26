@@ -37,12 +37,12 @@
     if (self.inWater)
     {
         CGFloat distance = (self.position.y - self.targetPoint.y) / 10;
-        distance = min(distance, 10);
+        distance = min(distance, 15);
         m_speedY -= distance * delta;
     }else
-        m_speedY -= 10 *delta;
+        m_speedY -= 12 * delta;
  
-    m_speedY *= 0.95;
+    m_speedY *= 0.97;
     CGFloat newYpos = self.position.y + m_speedY;
     newYpos = max(newYpos, self.boundingBox.size.height/4);
     self.position = ccp(self.position.x, newYpos);
@@ -65,5 +65,13 @@
         m_deltaAngle -= 360;
     if (m_deltaAngle < -180)
         m_deltaAngle += 360;
+}
+
+- (CGRect) collisionRect
+{
+    return CGRectMake(self.boundingBox.origin.x + self.boundingBox.size.width/2,
+                      self.boundingBox.origin.y + self.boundingBox.size.height * 0.3,
+                      self.boundingBox.size.width/2,
+                      self.boundingBox.size.height * 0.6);
 }
 @end

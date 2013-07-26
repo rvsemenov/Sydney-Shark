@@ -11,7 +11,7 @@
 #import "Bird.h"
 #import "GameOver.h"
 
-#define speed 60
+#define speed 200
 #define gameTime 60
 
 @implementation GameScene
@@ -79,6 +79,14 @@
     return node;
 }
 
+-(ccColor3B)randomColor
+{
+    float r = arc4random() % 255;
+    float g = arc4random() % 255;
+    float b = arc4random() % 255;
+    return ccc3(r,g,b);
+}
+
 #pragma mark -
 #pragma mark update
 - (void) spawnBonus
@@ -86,20 +94,20 @@
     if ((arc4random() % 100) < 20)
     {
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
-        CCNode *node = [self getRandomObject];
-        CGFloat height = node.boundingBox.size.height;
+        CCSprite *sprite = (CCSprite*)[self getRandomObject];
+        CGFloat height = sprite.boundingBox.size.height;
         CGFloat posY;
-        if ([node isKindOfClass:[Fish class]])
+        if ([sprite isKindOfClass:[Fish class]])
         {
             posY = height/2 + arc4random() % (int)(m_heightOfSee - height);
-        }else if ([node isKindOfClass:[Bird class]]){
+        }else if ([sprite isKindOfClass:[Bird class]]){
             CGFloat heightOfSky = screenSize.height - m_heightOfSee;
             posY = m_heightOfSee + height/2 + arc4random() % (int)(heightOfSky - height);
         }
-        
-        node.position = ccp(screenSize.width * 0.9, posY);
-        node.visible = YES;
-        [m_bonuses addObject:node];
+        sprite.color = [self randomColor];
+        sprite.position = ccp(screenSize.width + sprite.boundingBox.size.width, posY);
+        sprite.visible = YES;
+        [m_bonuses addObject:sprite];
     }
 }
 
@@ -117,7 +125,7 @@
         if (bonus.position.x + bonus.boundingBox.size.width < 0)
             [m_bonusesToDelete addObject:bonus];
 
-        if (CGRectContainsPoint(m_shark.boundingBox, bonus.position))
+        if (CGRectContainsPoint([m_shark collisionRect], bonus.position))
         {
             [m_bonusesToDelete addObject:bonus];
             m_score++;
@@ -205,7 +213,8 @@
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView: [touch view]];
     location = [[CCDirector sharedDirector] convertToUI:location];
-    m_shark.targetPoint = location;
+    if (location.x > m_shark.position.x) 
+        m_shark.targetPoint = location;
 }
 
 - (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -213,6 +222,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView: [touch view]];
     location = [[CCDirector sharedDirector] convertToUI:location];
-    m_shark.targetPoint = location;
+    if (location.x > m_shark.position.x)
+        m_shark.targetPoint = location;
 }
 @end

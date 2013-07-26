@@ -16,4 +16,5 @@
 @property (nonatomic, assign) CGPoint targetPoint;
 @property (nonatomic, assign) BOOL inWater;
 + (Shark*) shark;
+- (CGRect) collisionRect;
 @end
