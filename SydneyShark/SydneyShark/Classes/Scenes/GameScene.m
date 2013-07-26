@@ -9,10 +9,12 @@
 #import "GameScene.h"
 #import "Fish.h"
 
+#define speed 60
+
 @implementation GameScene
 
 #pragma mark -
-#pragma mark init metods
+#pragma mark init and dealloc metods 
 + (CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
@@ -32,6 +34,8 @@
         m_objectBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"GameObjectsSpriteSheet.pvr.gz"];
         [self addChild:m_objectBatchNode];
         
+        m_bonuses = [[CCArray alloc] init];
+        m_bonusesToDelete = [[CCArray alloc] init];
         [self addShark];
         [self addFishes];
     }
@@ -43,6 +47,10 @@
     [m_fishes removeAllObjects];
     [m_fishes release];
     
+    [m_bonuses removeAllObjects];
+    [m_bonuses release];
+    
+    [m_bonusesToDelete release];
     [super dealloc];
 }
 
@@ -50,9 +58,37 @@
 {
     [super onEnter];
     [self scheduleUpdate];
+    [self schedule:@selector(spawnBonus) interval:0.2];
 }
 #pragma mark -
+#pragma mark onther
+- (Fish*) getRandomFish
+{
+    //TODO: fish may end
+    int rand = arc4random() % m_fishes.count;
+    Fish *fish = [m_fishes objectAtIndex:rand];
+    if (fish.visible)
+        fish = [self getRandomFish];
+    
+    return fish;
+}
+
+#pragma mark -
 #pragma mark update
+- (void) spawnBonus
+{
+    if ((arc4random() % 100) < 20)
+    {
+        CGSize screenSize = [[CCDirector sharedDirector] winSize];
+        Fish *fish = [self getRandomFish];
+        CGFloat height = fish.boundingBox.size.height;
+        CGFloat posY = height/2 + arc4random() % (int)(m_heightOfSee - height);
+        
+        fish.position = ccp(screenSize.width * 0.9, posY);
+        fish.visible = YES;
+        [m_bonuses addObject:fish];
+    }
+}
 
 - (void) update:(ccTime)delta
 {
@@ -61,6 +97,26 @@
     }else
         m_shark.inWater = YES;
     
+    CCNode *bonus;
+    CCARRAY_FOREACH(m_bonuses, bonus)
+    {
+        bonus.position = ccpAdd(bonus.position, ccp(-speed * delta, 0));
+        if (bonus.position.x + bonus.boundingBox.size.width < 0)
+            [m_bonusesToDelete addObject:bonus];
+
+        if (CGRectContainsPoint(m_shark.boundingBox, bonus.position))
+        {
+            [m_bonusesToDelete addObject:bonus];
+            NSLog(@"score");
+        }
+    }
+
+    CCARRAY_FOREACH(m_bonusesToDelete, bonus)
+    {
+        bonus.visible = NO;
+        [m_bonuses removeObject:bonus];
+    }
+    [m_bonusesToDelete removeAllObjects];
 }
 #pragma mark -
 #pragma mark add Objects
@@ -86,13 +142,13 @@
 - (void) addShark
 {
     m_shark = [Shark shark];
-    [m_objectBatchNode addChild:m_shark];
+    [m_objectBatchNode addChild:m_shark z:2];
 }
 
 - (void) addFishes
 {
     m_fishes = [[CCArray alloc] initWithCapacity:12];
-    for (int i = 0; i < FISH_TYPE_MAX * 2; i++)
+    for (int i = 0; i < FISH_TYPE_MAX * 3; i++)
     {
         Fish *fish = [Fish fishWithType:i];
         [m_fishes addObject:fish];

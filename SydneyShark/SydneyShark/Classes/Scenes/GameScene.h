@@ -12,6 +12,8 @@
 
 @interface GameScene : CCLayer {
     CCArray *m_fishes;
+    CCArray *m_bonuses;
+    CCArray *m_bonusesToDelete;
     CCSpriteBatchNode *m_objectBatchNode;
     Shark *m_shark;
     CGFloat m_heightOfSee;
