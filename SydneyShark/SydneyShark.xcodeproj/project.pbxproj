@@ -137,8 +137,8 @@
 		18CB817E17A27D5F0085DBE1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB817817A27D5F0085DBE1 /* Icon.png */; };
 		18CB817F17A27D5F0085DBE1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB817917A27D5F0085DBE1 /* Icon@2x.png */; };
 		18CB818717A27D780085DBE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB818217A27D780085DBE1 /* AppDelegate.m */; };
-		18CB818817A27D780085DBE1 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB818417A27D780085DBE1 /* HelloWorldLayer.m */; };
 		18CB818917A27D780085DBE1 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB818617A27D780085DBE1 /* IntroLayer.m */; };
+		18CB818D17A27DE70085DBE1 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB818C17A27DE70085DBE1 /* GameScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -416,10 +416,10 @@
 		18CB817917A27D5F0085DBE1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		18CB818117A27D780085DBE1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18CB818217A27D780085DBE1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18CB818317A27D780085DBE1 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		18CB818417A27D780085DBE1 /* HelloWorldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		18CB818517A27D780085DBE1 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		18CB818617A27D780085DBE1 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		18CB818B17A27DE60085DBE1 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		18CB818C17A27DE70085DBE1 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -877,14 +877,22 @@
 		18CB818017A27D780085DBE1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				18CB818A17A27DCC0085DBE1 /* Scenes */,
 				18CB818117A27D780085DBE1 /* AppDelegate.h */,
 				18CB818217A27D780085DBE1 /* AppDelegate.m */,
-				18CB818317A27D780085DBE1 /* HelloWorldLayer.h */,
-				18CB818417A27D780085DBE1 /* HelloWorldLayer.m */,
 				18CB818517A27D780085DBE1 /* IntroLayer.h */,
 				18CB818617A27D780085DBE1 /* IntroLayer.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		18CB818A17A27DCC0085DBE1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				18CB818B17A27DE60085DBE1 /* GameScene.h */,
+				18CB818C17A27DE70085DBE1 /* GameScene.m */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1069,8 +1077,8 @@
 				18CB815F17A27D3A0085DBE1 /* vec4.c in Sources */,
 				18CB816417A27D3A0085DBE1 /* main.m in Sources */,
 				18CB818717A27D780085DBE1 /* AppDelegate.m in Sources */,
-				18CB818817A27D780085DBE1 /* HelloWorldLayer.m in Sources */,
 				18CB818917A27D780085DBE1 /* IntroLayer.m in Sources */,
+				18CB818D17A27DE70085DBE1 /* GameScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
