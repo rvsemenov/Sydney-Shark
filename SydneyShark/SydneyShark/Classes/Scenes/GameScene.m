@@ -25,6 +25,7 @@
 {
     if (self = [super init])
     {
+        self.touchEnabled = YES;
         [self addBackground];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameObjectsSpriteSheet.plist"];
@@ -36,6 +37,22 @@
     return self;
 }
 
+- (void) onEnter
+{
+    [super onEnter];
+    [self scheduleUpdate];
+}
+#pragma mark -
+#pragma mark update
+
+- (void) update:(ccTime)delta
+{
+    if (m_shark.position.y > m_heightOfSee){
+        m_shark.inWater = NO;
+    }else
+        m_shark.inWater = YES;
+    
+}
 #pragma mark -
 #pragma mark add Objects
 
@@ -54,11 +71,30 @@
     see.anchorPoint = CGPointZero;
     see.position = CGPointZero;
     [self addChild:see];
+    m_heightOfSee = see.boundingBox.size.height;
 }
 
 - (void) addShark
 {
     m_shark = [Shark shark];
     [m_objectBatchNode addChild:m_shark];
+}
+
+#pragma mark -
+#pragma mark Touches
+- (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView: [touch view]];
+    location = [[CCDirector sharedDirector] convertToUI:location];
+    m_shark.targetPoint = location;
+}
+
+- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView: [touch view]];
+    location = [[CCDirector sharedDirector] convertToUI:location];
+    m_shark.targetPoint = location;
 }
 @end

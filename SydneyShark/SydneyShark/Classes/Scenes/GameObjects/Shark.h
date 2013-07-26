@@ -10,7 +10,10 @@
 #import "cocos2d.h"
 
 @interface Shark : CCSprite {
-    
+    CGFloat m_speedY;
+    CGFloat m_deltaAngle;
 }
+@property (nonatomic, assign) CGPoint targetPoint;
+@property (nonatomic, assign) BOOL inWater;
 + (Shark*) shark;
 @end

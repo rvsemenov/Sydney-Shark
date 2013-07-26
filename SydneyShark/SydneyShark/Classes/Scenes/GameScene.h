@@ -13,6 +13,7 @@
 @interface GameScene : CCLayer {
     CCSpriteBatchNode *m_objectBatchNode;
     Shark *m_shark;
+    CGFloat m_heightOfSee;
 }
 +(CCScene *) scene;
 @end
