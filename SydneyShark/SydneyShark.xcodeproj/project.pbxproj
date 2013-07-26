@@ -143,6 +143,11 @@
 		18CB819617A27E8F0085DBE1 /* water-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819117A27E8F0085DBE1 /* water-hd.png */; };
 		18CB819717A27E8F0085DBE1 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819317A27E8F0085DBE1 /* sky.png */; };
 		18CB819817A27E8F0085DBE1 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819417A27E8F0085DBE1 /* water.png */; };
+		18CB819E17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819A17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.plist */; };
+		18CB819F17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.pvr.gz in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819B17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.pvr.gz */; };
+		18CB81A017A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819C17A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist */; };
+		18CB81A117A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz in Resources */ = {isa = PBXBuildFile; fileRef = 18CB819D17A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz */; };
+		18CB81A517A27FD20085DBE1 /* Shark.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB81A417A27FD20085DBE1 /* Shark.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -428,6 +433,12 @@
 		18CB819117A27E8F0085DBE1 /* water-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "water-hd.png"; sourceTree = "<group>"; };
 		18CB819317A27E8F0085DBE1 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
 		18CB819417A27E8F0085DBE1 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		18CB819A17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GameObjectsSpriteSheet-hd.plist"; path = "GameObjects/GameObjectsSpriteSheet-hd.plist"; sourceTree = "<group>"; };
+		18CB819B17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.pvr.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; name = "GameObjectsSpriteSheet-hd.pvr.gz"; path = "GameObjects/GameObjectsSpriteSheet-hd.pvr.gz"; sourceTree = "<group>"; };
+		18CB819C17A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = GameObjectsSpriteSheet.plist; path = GameObjects/GameObjectsSpriteSheet.plist; sourceTree = "<group>"; };
+		18CB819D17A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; name = GameObjectsSpriteSheet.pvr.gz; path = GameObjects/GameObjectsSpriteSheet.pvr.gz; sourceTree = "<group>"; };
+		18CB81A317A27FD20085DBE1 /* Shark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shark.h; path = Scenes/GameObjects/Shark.h; sourceTree = "<group>"; };
+		18CB81A417A27FD20085DBE1 /* Shark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shark.m; path = Scenes/GameObjects/Shark.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -886,6 +897,7 @@
 		18CB818017A27D780085DBE1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				18CB81A217A27FAC0085DBE1 /* GameObjects */,
 				18CB818A17A27DCC0085DBE1 /* Scenes */,
 				18CB818117A27D780085DBE1 /* AppDelegate.h */,
 				18CB818217A27D780085DBE1 /* AppDelegate.m */,
@@ -907,6 +919,7 @@
 		18CB818E17A27E8F0085DBE1 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
+				18CB819917A27F8E0085DBE1 /* GameObjects */,
 				18CB818F17A27E8F0085DBE1 /* hd */,
 				18CB819217A27E8F0085DBE1 /* sd */,
 			);
@@ -930,6 +943,26 @@
 				18CB819417A27E8F0085DBE1 /* water.png */,
 			);
 			path = sd;
+			sourceTree = "<group>";
+		};
+		18CB819917A27F8E0085DBE1 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				18CB819A17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.plist */,
+				18CB819B17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.pvr.gz */,
+				18CB819C17A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist */,
+				18CB819D17A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz */,
+			);
+			name = GameObjects;
+			sourceTree = "<group>";
+		};
+		18CB81A217A27FAC0085DBE1 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				18CB81A317A27FD20085DBE1 /* Shark.h */,
+				18CB81A417A27FD20085DBE1 /* Shark.m */,
+			);
+			name = GameObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -999,6 +1032,10 @@
 				18CB819617A27E8F0085DBE1 /* water-hd.png in Resources */,
 				18CB819717A27E8F0085DBE1 /* sky.png in Resources */,
 				18CB819817A27E8F0085DBE1 /* water.png in Resources */,
+				18CB819E17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.plist in Resources */,
+				18CB819F17A27F9C0085DBE1 /* GameObjectsSpriteSheet-hd.pvr.gz in Resources */,
+				18CB81A017A27F9C0085DBE1 /* GameObjectsSpriteSheet.plist in Resources */,
+				18CB81A117A27F9C0085DBE1 /* GameObjectsSpriteSheet.pvr.gz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,6 +1157,7 @@
 				18CB818717A27D780085DBE1 /* AppDelegate.m in Sources */,
 				18CB818917A27D780085DBE1 /* IntroLayer.m in Sources */,
 				18CB818D17A27DE70085DBE1 /* GameScene.m in Sources */,
+				18CB81A517A27FD20085DBE1 /* Shark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

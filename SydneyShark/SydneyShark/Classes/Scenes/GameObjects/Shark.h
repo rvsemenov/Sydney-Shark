@@ -1,5 +1,5 @@
 //
-//  GameScene.h
+//  Shark.h
 //  SydneyShark
 //
 //  Created by Roman on 7/26/13.
@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "Shark.h"
 
-@interface GameScene : CCLayer {
-    CCSpriteBatchNode *m_objectBatchNode;
-    Shark *m_shark;
+@interface Shark : CCSprite {
+    
 }
-+(CCScene *) scene;
++ (Shark*) shark;
 @end

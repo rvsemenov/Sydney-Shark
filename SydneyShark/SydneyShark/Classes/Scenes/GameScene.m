@@ -26,6 +26,12 @@
     if (self = [super init])
     {
         [self addBackground];
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameObjectsSpriteSheet.plist"];
+        m_objectBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"GameObjectsSpriteSheet.pvr.gz"];
+        [self addChild:m_objectBatchNode];
+        
+        [self addShark];
     }
     return self;
 }
@@ -48,5 +54,11 @@
     see.anchorPoint = CGPointZero;
     see.position = CGPointZero;
     [self addChild:see];
+}
+
+- (void) addShark
+{
+    m_shark = [Shark shark];
+    [m_objectBatchNode addChild:m_shark];
 }
 @end
