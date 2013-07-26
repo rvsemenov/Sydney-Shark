@@ -11,7 +11,7 @@
 #import "Bird.h"
 #import "GameOver.h"
 
-#define speed 200
+#define speedShark 200
 #define gameTime 60
 
 @implementation GameScene
@@ -37,7 +37,7 @@
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"GameObjectsSpriteSheet.plist"];
         m_objectBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"GameObjectsSpriteSheet.pvr.gz"];
-        [self addChild:m_objectBatchNode];
+        [self addChild:m_objectBatchNode z:3];
         
         m_bonuses = [[CCArray alloc] init];
         m_bonusesToDelete = [[CCArray alloc] init];
@@ -114,6 +114,13 @@
 - (void) update:(ccTime)delta
 {
     if (m_shark.position.y > m_heightOfSee){
+        if (!m_shark.inWater)
+        {
+            m_bubbles.position = m_shark.position;
+            m_bubbles.speed = -m_shark.speedY * 14;
+            m_bubbles.speedVar = -m_shark.speedY * 7;
+            [m_bubbles resetSystem];
+        }
         m_shark.inWater = NO;
     }else
         m_shark.inWater = YES;
@@ -121,7 +128,7 @@
     CCNode *bonus;
     CCARRAY_FOREACH(m_bonuses, bonus)
     {
-        bonus.position = ccpAdd(bonus.position, ccp(-speed * delta, 0));
+        bonus.position = ccpAdd(bonus.position, ccp(-speedShark * delta, 0));
         if (bonus.position.x + bonus.boundingBox.size.width < 0)
             [m_bonusesToDelete addObject:bonus];
 
@@ -156,18 +163,21 @@
 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
-    CCSprite *sky = [CCSprite spriteWithFile:@"sky.png"];
-    sky.scaleX = screenSize.width / sky.boundingBox.size.width;
-    sky.anchorPoint = ccp(0, 1);
-    sky.position = ccp(0, screenSize.height);
-    [self addChild:sky];
-    
     CCSprite *see = [CCSprite spriteWithFile:@"water.png"];
     see.scaleX = screenSize.width / see.boundingBox.size.width;
     see.anchorPoint = CGPointZero;
     see.position = CGPointZero;
     [self addChild:see];
+    
+    m_bubbles = [CCParticleSystemQuad particleWithFile:@"bubbles.plist"];
+    [self addChild:m_bubbles];
     m_heightOfSee = see.boundingBox.size.height;
+    
+    CCSprite *sky = [CCSprite spriteWithFile:@"sky.png"];
+    sky.scaleX = screenSize.width / sky.boundingBox.size.width;
+    sky.anchorPoint = ccp(0, 1);
+    sky.position = ccp(0, screenSize.height);
+    [self addChild:sky z:2];
 }
 
 - (void) addShark
@@ -199,13 +209,15 @@
     m_hudLayer = [HUDLayer node];
     [m_hudLayer updateTime:gameTime];
     [m_hudLayer updateScore:m_score];
-    [self addChild:m_hudLayer];
+    [self addChild:m_hudLayer z:5];
 }
 
 - (void) gameOver
 {
+    [self unscheduleAllSelectors];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOver sceneWithScore:m_score]]];
 }
+
 #pragma mark -
 #pragma mark Touches
 - (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

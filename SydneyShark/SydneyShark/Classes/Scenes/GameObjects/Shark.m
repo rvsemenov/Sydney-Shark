@@ -12,6 +12,7 @@
 @implementation Shark
 @synthesize targetPoint;
 @synthesize inWater;
+@synthesize speedY = m_speedY;
 
 + (Shark*) shark
 {

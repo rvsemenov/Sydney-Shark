@@ -12,6 +12,7 @@
 #import "HUDLayer.h"
 
 @interface GameScene : CCLayer {
+    CCParticleSystemQuad *m_bubbles;
     NSInteger m_score;
     CGFloat m_gameTime;
     CCArray *m_gameObjects;

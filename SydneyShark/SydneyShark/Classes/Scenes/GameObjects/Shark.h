@@ -13,6 +13,7 @@
     CGFloat m_speedY;
     CGFloat m_deltaAngle;
 }
+@property (nonatomic, assign) CGFloat speedY;
 @property (nonatomic, assign) CGPoint targetPoint;
 @property (nonatomic, assign) BOOL inWater;
 + (Shark*) shark;
